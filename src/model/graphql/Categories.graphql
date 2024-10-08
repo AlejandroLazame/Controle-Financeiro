@@ -1,0 +1,49 @@
+# Tipo para categorias
+type Category {
+    _id: ID! # Identificador unico de uma categoria
+    name: String! # Nome da categoria
+}
+
+# Input de nova categoria
+input newCategoryInput {
+    name: String!
+}
+# Input para atualização de categoria
+input updateCategoryInput {
+    _id: ID! # ID da categoria a ser atualizada
+    data: newCategoryInput!
+}
+
+input deleteCategoryInput {
+    _id: ID!
+}
+
+input filterCategorieInput {
+    _id: ID
+    name: String
+}
+
+
+# Query para listagem das categorias
+type Query{
+    # Lista todas as categorias
+    listCategories(input: filterCategorieInput): [Category]!
+    # Lista categoria que possuir o ID informado
+    getCategoryById(input: filterCategorieInput): Category!
+}
+
+# Mutations para categorias
+type Mutation {
+    # Adiciona nova categoria
+    addNewCategory(
+        input: newCategoryInput!
+    ):Category!
+    # Atualiza categoria existente
+    updateCategory(
+        input: updateCategoryInput!
+    ):Boolean! 
+    # Deleta categoria existente
+    deleteCategory(
+        input: deleteCategoryInput!
+    ):Boolean!
+}

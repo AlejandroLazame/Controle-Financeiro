@@ -1,0 +1,87 @@
+scalar DateTime
+
+enum TransactionType {
+    Expense,
+    Receipt
+}
+
+# Tipo para despesas
+type Expense {
+    _id: ID! # Identificaor unico da transação
+    description: String! # Descrição da transação
+    value: Float! # Valor da transação
+    type: TransactionType! # Tipo da transação (Despesa ou Receita)
+    date: DateTime! # Data de Inclusão da transação
+    category: Category! # Categoria da despesa
+}
+
+# Tipo para receitas
+type Receipt {
+    _id: ID! # Identificaor unico da transação
+    description: String! # Descrição da transação
+    value: Float! # Valor da transação
+    type: TransactionType! # Tipo da transação (Despesa ou Receita)
+    date: DateTime! # Data de Inclusão da transação
+}
+
+# Union para transações
+union TransactionUnion = Expense | Receipt
+
+# Input para nova transação
+input NewTransactionInput {
+    type: TransactionType! 
+    description: String!
+    value: Float!
+    category: newCategoryInput # Categoria obrigatória para despesas
+}
+
+input AllowedUpdateInput {
+    type: TransactionType 
+    description: String
+    value: Float
+    category: newCategoryInput
+}
+
+# Input para atualizar transação já existente
+input UpdateTransactionInput {
+    _id: ID! # ID da transação a ser atualizada
+    data: AllowedUpdateInput!
+}
+
+# Input para filtrar transações
+input filterTransactionInput {
+    _id: ID
+    type: TransactionType
+    category: String 
+    date: DateTime 
+}
+
+# Input para excluir transação já existente
+input deleteTransactionInput {
+    _id: ID!
+}
+
+#Query para listar transações
+type Query {
+    listTransactions(input: filterTransactionInput): [TransactionUnion]!
+    getTransactionById(input: filterTransactionInput): TransactionUnion!
+    getTotalExpenses: Float!
+    getTotalReceipts: Float!
+    getCurrentBalance: Float!
+}
+
+# Mutações para transações
+type Mutation {
+    # Adiciona um nova transação
+    addNewTransaction(
+        input: NewTransactionInput!
+    ):TransactionUnion!
+    # Atualiza transação existente
+    updateTransaction(
+        input: UpdateTransactionInput!
+    ):Boolean!
+    # Exclui transação
+    deleteTransactionById(
+        input: deleteTransactionInput!
+    ):Boolean!
+}

@@ -1,0 +1,22 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.App {
+  min-height: 100vh;
+  background-color: #282c34;
+  color: #b8b8b8;
+  font-family: 'Inter', sans-serif;
+}
+
+.App-content {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 4rem;
+  gap: 1rem
+}
+
+
+.App-link {
+  color: #61dafb;
+}

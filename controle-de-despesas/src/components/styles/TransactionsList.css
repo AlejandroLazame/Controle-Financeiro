@@ -1,0 +1,41 @@
+.TransactionsList {
+    display: grid;
+    width: 75%;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #474747;
+} 
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.action-buttons {
+    padding: .5rem 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.primary-button {
+    background-color: #008EDE;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 15px;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.filter-button {
+    padding: .5rem 1rem;
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}

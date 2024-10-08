@@ -1,0 +1,58 @@
+.CardsArea {    
+    width: 100%;
+    display: grid;
+    grid-template-columns:25% 25% 25%;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+.Card {
+    background-color: #474747;
+    border-radius: .5rem;
+    box-shadow: 8px 7px 15px -4px rgba(0,0,0,0.1);
+    padding: 1rem 1.5rem;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 80% 1fr;
+}
+
+.CardContent *{
+ margin: 0;
+ padding: 0;
+}
+
+.CardContent h1 {
+    font-size: 14pt;
+    font-weight: normal;
+}
+
+.CardContent p{
+    font-size: 24pt;
+}
+
+.CardIcon {
+    display: grid;
+    width: fit-content;
+    height: fit-content;
+    padding: .7rem;
+    border-radius: 15%;
+    background-color: #8a8989;
+}
+
+.fa-wallet {
+    color: #0074B6;
+}
+
+.fa-circle-minus {
+    color: #E14255;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.fa-circle-plus {
+    color: #249F47;
+    background-color: #fff;
+    border-radius: 50%;
+}
