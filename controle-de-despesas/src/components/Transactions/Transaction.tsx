@@ -1,10 +1,13 @@
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faChevronRight, faCircleMinus, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import '../styles/Transaction.css';
 
-import './styles/Transaction.css';
+import Modal from '../Modal/Modal';
 import TransactionDetails from './TransactionDetails';
-import useModal from '../hooks/useModal';
-import Modal from './Modal';
+
+import { useModal } from '../../contexts/Modal.context';
+import { MouseEventHandler } from 'react';
+
 export interface ITransaction {
     _id: string,
     description: string,
@@ -14,16 +17,19 @@ export interface ITransaction {
     category: { name: string}     
 }
 
+
+
 export const TransactionItem: React.FC<ITransaction> = ({_id, description, value, type, date, category}) => {
   const input = {
     _id
   }
   
-  const {isOpen, openModal, closeModal } = useModal(
-  <>
-    <TransactionDetails input={input}/>
-  </>
-  );
+  const { openModal } = useModal();
+  
+  const handleTransactionDetails: MouseEventHandler = () => {
+    openModal(<Modal> <TransactionDetails input={input}/></Modal>);
+  }
+
   return (
     <>
       <li key= {_id} className="Transaction">
@@ -49,13 +55,10 @@ export const TransactionItem: React.FC<ITransaction> = ({_id, description, value
                 <p className='descricao-lancamento'>Descrição: { description }</p>
             </section>
           </div>
-          <div className='detail-icon' onClick={openModal}>
+          <div className='detail-icon' onClick={handleTransactionDetails}>
             <FontAwesomeIcon icon={faChevronRight} size='3x'/>
           </div>
       </li>
-      <Modal isOpen={isOpen} onClose={closeModal}>
-        {isOpen} <TransactionDetails input={input}/>
-      </Modal>
     </>
   )
 }

@@ -1,22 +1,21 @@
-import { ReactNode } from 'react'
-import '../components/styles/Modal.css';
+import '../styles/Modal.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useModal } from '../../contexts/Modal.context'; 
+import { ReactNode } from 'react';
 
 interface IModalProps {
-    isOpen: boolean;
-    onClose: () => void;
-    children: ReactNode;
+    children: ReactNode
 }
 
-const Modal: React.FC<IModalProps> = ({ isOpen, onClose, children }) => {
-    if(!isOpen) return null;
-
+const Modal: React.FC<IModalProps> = ({ children }) => {
+    const { closeModal } = useModal();
+        
     return (
         <div className='modal-overlay'>
             <div className='modal'>
                 <section className='modal-button'>
-                    <button className='close-button' onClick={onClose}> 
+                    <button className='close-button' onClick={closeModal}> 
                         <FontAwesomeIcon icon={faXmark} size='2x'/>
                     </button>
                 </section>

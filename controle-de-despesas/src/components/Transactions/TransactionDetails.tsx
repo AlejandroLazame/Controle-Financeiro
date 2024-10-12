@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import useFecth from '../hooks/useFecth'
-import { ObjectId } from 'mongoose'
-import './styles/TransactionDetails.css';
+import useFecth from '../../hooks/useFecth'
+import { ObjectId } from 'mongodb'
+import '../styles/TransactionDetails.css';
 interface IFilterTransaction {
   input: {
     _id: string

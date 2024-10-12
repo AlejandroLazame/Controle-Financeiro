@@ -15,7 +15,7 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.action-buttons {
+.main-action-buttons {
     padding: .5rem 1rem;
     display: flex;
     gap: 1rem;

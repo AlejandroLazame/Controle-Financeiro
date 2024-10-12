@@ -1,5 +1,5 @@
-import Cards from "../components/Cards";
-import TransactionsList from "../components/TransactionsList";
+import Cards from "../components/Cards/Cards";
+import TransactionsList from "../components/Transactions/TransactionsList";
 
 const Home = () => {
     return (

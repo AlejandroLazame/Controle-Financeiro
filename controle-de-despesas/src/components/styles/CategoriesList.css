@@ -1,0 +1,34 @@
+.categories-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.categories-header button {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: none;
+    padding: .3rem .6rem;
+    cursor: pointer;
+}
+
+.categories-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    gap: .5rem;
+}
+
+.danger {
+    background-color: #F92740;
+    color: #fff;
+}
+
+.primary {
+    background-color: #00A3FF;
+    color: #fff;
+}

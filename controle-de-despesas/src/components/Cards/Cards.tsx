@@ -1,7 +1,7 @@
-import useFecth from "../hooks/useFecth";
+import useFecth from "../../hooks/useFecth";
 import { useEffect, useState } from "react";
 
-import TotalCard from "../components/Card";
+import TotalCard from "./Card";
 
 const Cards = () => {
     const [Balance, setBalance] = useState(0);

@@ -32,14 +32,14 @@ input NewTransactionInput {
     type: TransactionType! 
     description: String!
     value: Float!
-    category: newCategoryInput # Categoria obrigatória para despesas
+    category: ID # Categoria obrigatória para despesas
 }
 
 input AllowedUpdateInput {
     type: TransactionType 
     description: String
     value: Float
-    category: newCategoryInput
+    category: ID
 }
 
 # Input para atualizar transação já existente
