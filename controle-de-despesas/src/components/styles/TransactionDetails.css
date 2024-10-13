@@ -1,5 +1,10 @@
-.details-header h3{
+.details-header {
     margin: 0;
+    color: #fff;
+}
+
+.details-content {
+    color: #fff;
 }
 
 .details-content .valor-lancamento {

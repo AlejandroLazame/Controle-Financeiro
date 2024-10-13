@@ -9,6 +9,7 @@ import { TransactionItem, ITransaction } from "./Transaction";
 import '../styles/TransactionsList.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileCirclePlus, faFilter, faTags } from "@fortawesome/free-solid-svg-icons";
+import NewTransaction from "./NewTransaction";
 
 const TransactionsList = () => {
   const [Transactions, setTransactions] = useState<ITransaction[]>([]);
@@ -16,6 +17,10 @@ const TransactionsList = () => {
 
   const handleCategoriesModal: MouseEventHandler = () => {
     openModal(<Modal><CategoriesList /></Modal>)
+  }
+
+  const handleNewTransactionModal: MouseEventHandler = () => {
+    openModal(<Modal><NewTransaction/></Modal>)
   }
   const query = `
     query {
@@ -54,7 +59,7 @@ const TransactionsList = () => {
       <ul className="TransactionsList">
           <div className="buttons">
             <div className="main-action-buttons">
-              <button className="primary-button">
+              <button className="primary-button" onClick={handleNewTransactionModal}>
                 <FontAwesomeIcon icon={faFileCirclePlus} size="2x"/>
                 Nova transação
               </button>

@@ -92,6 +92,7 @@ const ManageCategory: React.FC<{type: ManageActionType, _id: string}> = ({type, 
                 : null
                 }
             </header>
+            <hr className='h-divider w-100'/>
             <form className="form-manage-category">
                 <label htmlFor="#">
                     <h4 className="category-name">Nome da Categoria</h4>

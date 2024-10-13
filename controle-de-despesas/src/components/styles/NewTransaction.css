@@ -1,0 +1,67 @@
+.new-transaction {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.transaction-header {
+    color: #fff;
+}
+
+form.form-new-transaction {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    gap: .5rem
+}
+
+.form-new-transaction select, input, textarea {
+    min-height: 1rem;
+    max-height: 2rem;
+    margin: .2rem 0;
+    background-color: #4d4d4d;
+    border-radius: 3px;
+}
+
+select {
+    border-radius: 5px;
+    border: none;
+    padding: .3rem .6rem;    
+    color: #fff;
+    width: 15rem;
+    gap: .2rem;
+}
+
+select * {
+    border-bottom: solid #fff 5px;
+}
+
+.input-transaction-value {
+    width: 10rem;
+}
+
+.textarea-transaction-description {
+    width: 15rem;
+}
+
+.input-transaction-date {
+    width: 10rem;
+}
+
+#new-transction-buttons.action-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: end;
+}
+
+#new-transaction-buttons .save-button {
+    padding: .3rem 1rem;
+}
+
+.success {
+    background-color: #249F47;
+}
+
+.w-100 {
+    width: 100%;
+}
