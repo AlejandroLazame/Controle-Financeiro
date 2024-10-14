@@ -6,26 +6,27 @@ const useFecth = (query: string, variables = {}) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(()=>{
-        const fecthData = async () => { 
-            const endpoint = 'http://localhost:4000/graphql';
-            setLoading(true);
-            try {
-                const response = await axios.post(endpoint, {
-                    query,
-                    variables
-                });
-                setData(response.data.data);
-            } catch (error) {
-                setError((error as Error).message);
-            } finally {
-                setLoading(false);
-            }
+    const fecthData = async () => { 
+        const endpoint = 'http://localhost:4000/graphql';
+        setLoading(true);
+        try {
+            const response = await axios.post(endpoint, {
+                query,
+                variables
+            });
+            setData(response.data.data);
+        } catch (error) {
+            setError((error as Error).message);
+        } finally {
+            setLoading(false);
         }
+    }
+    
+    useEffect(()=>{
         fecthData();
     }, [query, JSON.stringify(variables)]);
 
-    return { data, loading, error};
+    return { data, loading, error, refetch: fecthData };
 };
 
 export default useFecth;

@@ -13,15 +13,16 @@ import NewTransaction from "./NewTransaction";
 
 const TransactionsList = () => {
   const [Transactions, setTransactions] = useState<ITransaction[]>([]);
-  const { openModal } = useModal();
+  const { openModal, closeModal } = useModal();
 
   const handleCategoriesModal: MouseEventHandler = () => {
     openModal(<Modal><CategoriesList /></Modal>)
   }
 
   const handleNewTransactionModal: MouseEventHandler = () => {
-    openModal(<Modal><NewTransaction/></Modal>)
+    openModal(<Modal><NewTransaction closeModal={closeModal} fetchTransaction={refetchTransactions}/></Modal>)
   }
+
   const query = `
     query {
         listTransactions {
@@ -46,14 +47,20 @@ const TransactionsList = () => {
     }
   `;
 
-  const { data, loading, error } = useFecth(query);
-
+  
+  const { data, loading, error, refetch } = useFecth(query);
+  
   useEffect(()=> {
     if(data){
       setTransactions(data.listTransactions);
     }
   }, [data]);
-
+  
+  
+  const refetchTransactions = async () => {
+    refetch();
+  };
+  
   return (
     <>
       <ul className="TransactionsList">
@@ -63,12 +70,16 @@ const TransactionsList = () => {
                 <FontAwesomeIcon icon={faFileCirclePlus} size="2x"/>
                 Nova transação
               </button>
+              {/* <button className="delete-button danger">
+                <FontAwesomeIcon icon={faTags} size="2x"/>
+                Gerenciar Categorias
+              </button> */}
+            </div>
+            <div className="filter-button">
               <button className="primary-button" onClick={handleCategoriesModal}>
                 <FontAwesomeIcon icon={faTags} size="2x"/>
                 Gerenciar Categorias
               </button>
-            </div>
-            <div className="filter-button">
               <button className="primary-button">
                 <FontAwesomeIcon icon={faFilter} size="2x"/>
                 Filtros

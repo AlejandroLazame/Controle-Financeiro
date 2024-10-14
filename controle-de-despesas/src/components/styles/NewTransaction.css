@@ -20,21 +20,17 @@ form.form-new-transaction {
     max-height: 2rem;
     margin: .2rem 0;
     background-color: #4d4d4d;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 select {
-    border-radius: 5px;
     border: none;
+    border-radius: 5px;
     padding: .3rem .6rem;    
     color: #fff;
     width: 15rem;
-    gap: .2rem;
 }
 
-select * {
-    border-bottom: solid #fff 5px;
-}
 
 .input-transaction-value {
     width: 10rem;
@@ -48,14 +44,14 @@ select * {
     width: 10rem;
 }
 
-#new-transction-buttons.action-buttons {
+#new-transaction-buttons.action-buttons {
     display: grid;
     grid-template-columns: 1fr;
     justify-items: end;
 }
 
 #new-transaction-buttons .save-button {
-    padding: .3rem 1rem;
+    cursor: pointer;
 }
 
 .success {
